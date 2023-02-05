@@ -4,14 +4,17 @@ void SortToLower(int[,] array) // функция упорядочивания п
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < array.GetLength(1) - 1; j++)
-        {            
-            if (array[i, j] < array[i, j + 1])
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int x = 0; x < array.GetLength(1) - 1; x++)
             {
-                int temp = array[i, j + 1];
-                array[i, j + 1] = array[i, j];
-                array[i, j] = temp;
-            }           
+                if (array[i, x] < array[i, x + 1])
+                {
+                    int temp = array[i, x + 1];
+                    array[i, x + 1] = array[i, x];
+                    array[i, x] = temp;
+                }
+            }    
         }
     }
 }
